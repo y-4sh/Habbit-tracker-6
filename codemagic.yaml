@@ -1,0 +1,15 @@
+workflows:
+  flutter-app:
+    name: Habit Tracker Build
+    instance_type: mac_mini_m1
+    scripts:
+      - name: Get dependencies
+        script: flutter pub get
+      - name: Build Android APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      email:
+        recipients:
+          - y4sh971@gmail.com
